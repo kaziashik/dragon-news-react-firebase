@@ -5,24 +5,19 @@ Dragon News is a responsive news portal web application built using React. The p
 ---
 
 ## 📸 Project Screenshots
+## 📸 Project Screenshots
 
-### Home Page
+<h3>Home Page</h3>
+<img src="./src/screenshots/home-layout.png" width="900">
 
-![Home Page](./screenshots/home-page.png)
+<h3>Login Page</h3>
+<img src="./src/screenshots/auth-layout-login.png" width="900">
 
-### Login Page
+<h3>Register Page</h3>
+<img src="./src/screenshots/auth-layout-register.png" width="900">
 
-![Login Page](./screenshots/login-page.png)
-
-### Register Page
-
-![Register Page](./screenshots/register-page.png)
-
-### News Details Page
-
-![News Details Page](./screenshots/news-details-page.png)
-
----
+<h3>News Details Page</h3>
+<img src="./src/screenshots/news-details-layout.png" width="900">
 
 ## 🚀 Features
 
