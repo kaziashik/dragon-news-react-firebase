@@ -1,16 +1,193 @@
-# React + Vite
+# 📰 Dragon News - React Firebase News Portal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Dragon News is a responsive news portal web application built using React. The project includes user authentication, protected routing, category-based news navigation, and a modern responsive user interface.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 📸 Project Screenshots
 
-## React Compiler
+### Home Page
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+![Home Page](./screenshots/home-page.png)
 
-## Expanding the ESLint configuration
+### Login Page
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+![Login Page](./screenshots/login-page.png)
+
+### Register Page
+
+![Register Page](./screenshots/register-page.png)
+
+### News Details Page
+
+![News Details Page](./screenshots/news-details-page.png)
+
+---
+
+## 🚀 Features
+
+- React-based Single Page Application (SPA)
+- React Router DOM Navigation
+- Firebase Authentication
+- Email & Password Registration/Login
+- Google Authentication
+- GitHub Authentication
+- Protected Private Routes
+- Category-Based News Navigation
+- Dynamic News Details Page
+- JSON-Based Data Loading
+- Responsive Design
+- Tailwind CSS Styling
+- DaisyUI Components
+- Component-Based Architecture
+- Loading Spinner Implementation
+- Reusable Layout Structure
+
+---
+
+## 🛠 Technologies Used
+
+### Frontend
+
+- React
+- React Router DOM
+- JavaScript (ES6+)
+- Vite
+
+### Authentication
+
+- Firebase Authentication
+- Email/Password Login
+- Google Sign-In
+- GitHub Sign-In
+
+### Styling
+
+- Tailwind CSS
+- DaisyUI
+- React Icons
+
+### Data Handling
+
+- JSON Data
+- Fetch API
+
+---
+
+## 📄 Main Pages
+
+### 🏠 Home Page
+
+- Latest News Section
+- News Categories
+- Featured News Cards
+- Right Sidebar
+- Social Login Section
+- Q-Zone Section
+
+### 🔐 Login Page
+
+- Email Login
+- Password Login
+- Google Sign-In
+- GitHub Sign-In
+
+### 📝 Register Page
+
+- User Registration
+- Password Validation
+- Profile Information Collection
+
+### 📰 News Details Page
+
+- Detailed News Article View
+- Category Navigation
+- Related News Section
+
+---
+
+## 🔒 Authentication Features
+
+This project uses Firebase Authentication.
+
+Users can:
+
+- Register with Email and Password
+- Login with Email and Password
+- Login using Google Account
+- Login using GitHub Account
+- Access Protected Routes
+- Redirect to Previous Route After Login
+
+---
+
+## 📂 Project Structure
+
+```text
+src/
+├── assets/
+├── components/
+│   ├── Header/
+│   ├── Home/
+│   ├── LatestNews/
+│   ├── NavBar/
+│   ├── Categories/
+│   ├── FindUs/
+│   ├── QZone/
+│   └── SocialLogin/
+│
+├── layouts/
+│   ├── HomeLayout.jsx
+│   └── CategoryNews.jsx
+│
+├── pages/
+│   ├── Login.jsx
+│   ├── Register.jsx
+│   └── NewsDetails.jsx
+│
+├── router/
+│   └── router.jsx
+│
+├── App.jsx
+├── main.jsx
+└── index.css
+```
+
+---
+
+## 🎯 Learning Objectives
+
+This project was developed to practice:
+
+- React Fundamentals
+- React Router DOM
+- Context API
+- Firebase Authentication
+- Private Routes
+- State Management
+- Component Reusability
+- Responsive UI Design
+- Tailwind CSS
+- DaisyUI
+
+---
+
+## ⚡ Installation
+
+```bash
+git clone https://github.com/kaziashik/dragon-news-react-firebase.git
+
+cd dragon-news-react-firebase
+
+npm install
+
+npm run dev
+```
+
+---
+
+## 👨‍💻 Author
+
+**Kazi Ashikur Rahman**
+
+- GitHub: https://github.com/kaziashik
