@@ -1,20 +1,49 @@
 # 📰 Dragon News - React Firebase News Portal
 
-Dragon News is a responsive news portal web application built using React. The project includes user authentication, protected routing, category-based news navigation, and a modern responsive user interface.
+Dragoon News is a responsive front-end web application build with react that delivers real-time news articles on a variety of topics, complete with user authentication for personalized access. Built with modern web technologies, the app ensures a seamless user experience across devices and secure login functionality using firebase authentication.let's build the project together. 😎
 
----
+### Base URL
 
-## 📸 Project Screenshots
-## 📸 Project Screenshots
+The base URL for the API is:
+[https://openapi.programming-hero.com/api](https://openapi.programming-hero.com/api)
+
+### Endpoints
+
+1. **Get All News Categories**
+
+   - **URL**: `/news/categories`
+   - **Full URL**: https://openapi.programming-hero.com/api/news/categories
+   - **Method**: `GET`
+   - **Description**: Retrieves a list of all available news categories.
+
+2. **Get All News in a Category**
+
+   - **URL Format**: `/news/category/{category_id}`
+   - **Full URL Example**: https://openapi.programming-hero.com/api/news/category/01
+   - **Method**: `GET`
+   - **Description**: Retrieves all news articles within a specified category.
+   - **Path Parameter**:
+     - `category_id` (string): The unique ID of the category.
+
+3. **Get News Detail by ID**
+   - **URL Format**: `/news/{news_id}`
+   - **Full URL Example**: https://openapi.programming-hero.com/api/news/0282e0e58a5c404fbd15261f11c2ab6a
+   - **Method**: `GET`
+   - **Description**: Retrieves detailed information about a specific news article.
+   - **Path Parameter**:
+     - `news_id` (string): The unique ID of the news article.
+
+## Layouts & Design
 
 <h3>Home Page</h3>
 <img src="./src/screenshots/home-layout.png" width="900">
 
-<h3>Login Page</h3>
-<img src="./src/screenshots/auth-layout-login.png" width="900">
+<tr>
+<h3>Register & Login Page</h3>
+ <td> <img src="./src/screenshots/auth-layout-register.png" width="900"></td>
 
-<h3>Register Page</h3>
-<img src="./src/screenshots/auth-layout-register.png" width="900">
+ <td> <img src="./src/screenshots/auth-layout-login.png" width="900"></td>
+</tr>
 
 <h3>News Details Page</h3>
 <img src="./src/screenshots/news-details-layout.png" width="900">
@@ -150,9 +179,7 @@ src/
 
 ---
 
-## 🎯 Learning Objectives
-
-This project was developed to practice:
+## 🎯 This project was developed to practice:
 
 - React Fundamentals
 - React Router DOM
