@@ -8,12 +8,12 @@ const NavBar = () => {
  
 
   const handelLogout = () => {
-    console.log("clickogout");
+    // console.log("clickogout");
     logout()
       .then(() => {
         alert("Your Logged Out Successfully")
       }).catch((error) => {
-        console.log(error);
+        // console.log(error);
       })
 
   }

@@ -7,7 +7,7 @@ const PrivatRout = ({ children }) => {
      const location=useLocation()
 
     const { user,loading } = use(AuthContext)
-    console.log("user_check", user);
+    // console.log("user_check", user);
 
     if(loading){
         return <Loding></Loding>

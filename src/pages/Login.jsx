@@ -12,11 +12,11 @@ const Login = () => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-        console.log("checkLogin", email, password);
+        // console.log("checkLogin", email, password);
 
         sinInWithEmail(email, password)
             .then(result => {
-                console.log(result);
+                // console.log(result);
                 navigate(`${handleLocation.state ? handleLocation.state : "/"}`)
             }).catch((error) => {
                 const errorCode = error.code;
