@@ -1,6 +1,7 @@
 import { FaEye, FaStar, FaShareAlt } from "react-icons/fa";
 import { BsBookmark } from "react-icons/bs";
 import { format } from "date-fns";
+import { Link } from "react-router";
 
 const NewsCard = ({ news }) => {
     const {
@@ -11,9 +12,12 @@ const NewsCard = ({ news }) => {
         tags,
         rating,
         total_view,
+        id,
     } = news;
 
-    const formattedDate= new Date(author.published_date).toLocaleDateString()
+    // console.log("news_details",id);
+
+    const formattedDate = new Date(author.published_date).toLocaleDateString()
 
     return (
         <div className="card bg-base-100 shadow-md mb-6">
@@ -69,9 +73,10 @@ const NewsCard = ({ news }) => {
                             : details}
                     </p>
 
-                    <button className="text-orange-500 font-bold mt-2">
+                    <Link to={`/news-details/${id}`}
+                        className="text-orange-500 font-bold mt-2">
                         Read More
-                    </button>
+                    </Link>
                 </div>
             </div>
 

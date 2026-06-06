@@ -6,51 +6,59 @@ import CategoryNews from "../layouts/CategoryNews";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import AuthLayout from "../Components/Homelayout/AuthLayout";
+import NewsDetails from "../pages/NewsDetails";
+import PrivatRout from "../provider/PrivatRout";
+import Loding from "../pages/Loding";
 
 
 
 
- const router= createBrowserRouter(
- [
-    {
-        path:"/",
-        Component: HomeLayout,
-        children: [
-            {
-                path: "",
-                element: <Home></Home>
-            },
-            {
-                path: "/category/:id",
-                element: <CategoryNews></CategoryNews>,
-                loader: ()=>fetch("/news.json")
-            }
-        ]
-    },
-    {
-        path: "/auth",
-        element: <AuthLayout></AuthLayout>,
-        children: [
-            {
-                path: "/auth/login",
-                element: <Login></Login>
-            },
-            {
-                path: "/auth/register",
-                element: <Register></Register>
-            }
-        ]
+const router = createBrowserRouter(
+    [
+        {
+            path: "/",
+            Component: HomeLayout,
+            children: [
+                {
+                    index: true,
+                    element: <Home></Home>
+                },
+                {
+                    path: "/category/:id",
+                    element: <CategoryNews></CategoryNews>,
+                    loader: () => fetch("/news.json"),
+                    hydrateFallbackElement: <Loding></Loding>
+                }
+            ]
+        },
+        {
+            path: "/auth",
+            element: <AuthLayout></AuthLayout>,
+            children: [
+                {
+                    path: "/auth/login",
+                    element: <Login></Login>
+                },
+                {
+                    path: "/auth/register",
+                    element: <Register></Register>
+                }
+            ]
 
-    },
-    {
-        path: "/news",
-        element: <h2>newspage</h2>
-    },
+        },
+        {
+            path: "/news-details/:id",
+            element: <PrivatRout>
+                <NewsDetails></NewsDetails>
+            </PrivatRout>,
+            loader: () => fetch("/news.json"),
+            hydrateFallbackElement: <Loding></Loding>
+        },
 
-    {
-        path: "/*",
-        element: <h2>Error404</h2>
-    }
- ]);
+        {
+            path: "/*",
+            element: <h2>Error404</h2>
+        }
+    ]);
 
- export default router
+export default router
