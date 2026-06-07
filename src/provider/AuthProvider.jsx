@@ -1,11 +1,14 @@
-import { createUserWithEmailAndPassword, fetchSignInMethodsForEmail, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth';
+import { createUserWithEmailAndPassword, fetchSignInMethodsForEmail, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import React, { createContext, use, useEffect, useState } from 'react';
 import auth from '../firebase/firebase.config';
+
 export const AuthContext=createContext();
 
 
 
 const AuthProvider = ({children}) => {
+  const provider = new GoogleAuthProvider();
+  const Github_provider = new GithubAuthProvider();
  
  
   const [loading,setLoading]=useState(true)
@@ -28,11 +31,22 @@ const AuthProvider = ({children}) => {
       }
 
       const updateuser=(updateData)=>{
+         setLoading(true)
         return updateProfile(auth.currentUser,updateData)
 
       }
       const resetPassword=( email)=>{
         return sendPasswordResetEmail(auth, email)
+      }
+
+      const loginWIthGoodle=()=>{
+         setLoading(true)
+        return signInWithPopup(auth,provider)
+      }
+
+      const loginEithGithub=()=>{
+         setLoading(true)
+        return  signInWithPopup(auth, Github_provider)
       }
 
       const checkUser=(email)=>{
@@ -60,7 +74,9 @@ const AuthProvider = ({children}) => {
         setLoading,
         updateuser,
         resetPassword,
-        checkUser
+        checkUser,
+        loginWIthGoodle,
+        loginEithGithub
 
     }
     return <AuthContext value={authData}> {children}</AuthContext>
