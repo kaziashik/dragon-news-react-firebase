@@ -10,6 +10,7 @@ import NewsDetails from "../pages/NewsDetails";
 import PrivatRout from "../provider/PrivatRout";
 import Loding from "../pages/Loding";
 import ForgetPassword from "../pages/ForgetPassword";
+import Profile from "../pages/Profile";
 
 
 
@@ -45,6 +46,14 @@ const router = createBrowserRouter(
                     element: <Register></Register>
                 },
                 {
+            path: '/auth/profile',
+            element: <PrivatRout>
+                <Profile></Profile>
+                </PrivatRout>
+
+        },
+
+                {
                     path: "/auth/resetpasswrod",
                     element:
                         <ForgetPassword></ForgetPassword>
@@ -61,7 +70,7 @@ const router = createBrowserRouter(
             loader: () => fetch("/news.json"),
             hydrateFallbackElement: <Loding></Loding>
         },
-
+        
 
         {
             path: "/*",

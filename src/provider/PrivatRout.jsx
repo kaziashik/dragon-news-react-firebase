@@ -14,7 +14,7 @@ const PrivatRout = ({ children }) => {
     }
     //if->user exist theke return childern
 
-    if (user && user?.email) {
+    if (user && user) {
         return children
     }
     else {

@@ -2,84 +2,88 @@ import { createUserWithEmailAndPassword, fetchSignInMethodsForEmail, GithubAuthP
 import React, { createContext, use, useEffect, useState } from 'react';
 import auth from '../firebase/firebase.config';
 
-export const AuthContext=createContext();
+export const AuthContext = createContext();
 
 
 
-const AuthProvider = ({children}) => {
+const AuthProvider = ({ children }) => {
   const provider = new GoogleAuthProvider();
   const Github_provider = new GithubAuthProvider();
- 
- 
-  const [loading,setLoading]=useState(true)
-      const [user,setUser]=useState(null)
-      // console.log("loading",user, loading);
 
-      const usercreatEmailPassword=(email,password)=>{
-        setLoading(true)
-        return createUserWithEmailAndPassword(auth, email, password)
-      }
 
-      const sinInWithEmail=(email,password)=>{
-        setLoading(true)
-        return signInWithEmailAndPassword(auth,email,password)
+  const [loading, setLoading] = useState(true)
+  const [user, setUser] = useState(null)
+  // console.log("loading",user, loading);
 
-      }
+  const usercreatEmailPassword = (email, password) => {
+    setLoading(true)
+    return createUserWithEmailAndPassword(auth, email, password)
+  }
 
-      const logout=()=>{
-        return signOut(auth)
-      }
+  const sinInWithEmail = (email, password) => {
+    setLoading(true)
+    return signInWithEmailAndPassword(auth, email, password)
 
-      const updateuser=(updateData)=>{
-         setLoading(true)
-        return updateProfile(auth.currentUser,updateData)
+  }
 
-      }
-      const resetPassword=( email)=>{
-        return sendPasswordResetEmail(auth, email)
-      }
+  
 
-      const loginWIthGoodle=()=>{
-         setLoading(true)
-        return signInWithPopup(auth,provider)
-      }
+  const updateuser = (updateData) => {
+    setLoading(true)
+    return updateProfile(auth.currentUser, updateData)
 
-      const loginEithGithub=()=>{
-         setLoading(true)
-        return  signInWithPopup(auth, Github_provider)
-      }
+  }
+  const resetPassword = (email) => {
+    return sendPasswordResetEmail(auth, email)
+  }
 
-      const checkUser=(email)=>{
-        return fetchSignInMethodsForEmail(auth, email)
+  const loginWIthGoodle = () => {
+    setLoading(true)
+    return signInWithPopup(auth, provider)
+  }
 
-      }
+  const loginEithGithub = () => {
+    setLoading(true)
+    return signInWithPopup(auth, Github_provider)
+  }
 
-      useEffect(()=>{
-        const unsubscribe=onAuthStateChanged(auth,(currentUser)=>{
-            setUser(currentUser)
-            setLoading(false)
-        });
-        return ()=>{
-            unsubscribe()
+  const logout = () => {
+    setLoading(true);
+    return signOut(auth);
+  };
 
-        }
-      })
-    const authData={
-        user,
-        setUser,
-        usercreatEmailPassword,
-        sinInWithEmail,
-        logout,
-        loading,
-        setLoading,
-        updateuser,
-        resetPassword,
-        checkUser,
-        loginWIthGoodle,
-        loginEithGithub
+  const checkUser = (email) => {
+    return fetchSignInMethodsForEmail(auth, email)
 
-    }
-    return <AuthContext value={authData}> {children}</AuthContext>
+  }
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      setLoading(false);
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+  const authData = {
+    user,
+    setUser,
+    usercreatEmailPassword,
+    sinInWithEmail,
+    logout,
+    loading,
+    setLoading,
+    updateuser,
+    resetPassword,
+    checkUser,
+    loginWIthGoodle,
+    loginEithGithub
+
+  }
+  return <AuthContext value={authData}> {children}</AuthContext>
 
 };
 

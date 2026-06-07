@@ -3,8 +3,11 @@ import { FcGoogle } from 'react-icons/fc';
 import { ImGithub } from 'react-icons/im';
 import { AuthContext } from '../../provider/AuthProvider';
 import Swal from 'sweetalert2';
+import { useLocation, useNavigate } from 'react-router';
 
 const SocialLogin = () => {
+    const navigate = useNavigate()
+      const handleLocation = useLocation()
     const { loginWIthGoodle, loginEithGithub } = use(AuthContext)
 
     const handelGoogleLogin = (e) => {
@@ -20,6 +23,7 @@ const SocialLogin = () => {
                     timer: 2000,
                     showConfirmButton: false
                 });
+                navigate(`${handleLocation.state ? handleLocation.state : "/"}`)
 
             })
             .catch((error) => {
@@ -46,6 +50,8 @@ const SocialLogin = () => {
                     timer: 2000,
                     showConfirmButton: false
                 });
+
+                navigate(`${handleLocation.state ? handleLocation.state : "/"}`)
 
             })
             .catch((error) => {
