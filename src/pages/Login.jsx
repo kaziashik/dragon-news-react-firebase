@@ -1,6 +1,7 @@
 import React, { use, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../provider/AuthProvider';
+import SocialLogin from '../Components/Homelayout/SocialLogin';
 
 const Login = () => {
     const [error, setError] = useState("")
@@ -44,6 +45,7 @@ const Login = () => {
                         {error && <p className='text-red-500'>{error}</p>}
 
                         <button className="btn btn-neutral mt-4">Login</button>
+                        <SocialLogin></SocialLogin>
                         <p className='font-semibold text-center pt-5'>Dont’t Have An Account ? <Link to="/auth/register" className="text-secondary"> Register</Link></p>
                     </fieldset>
                 </form>
