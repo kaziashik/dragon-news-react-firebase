@@ -67,7 +67,7 @@ const Register = () => {
                         <label className="label">Password</label>
                         <input type="password" className="input" name="password" placeholder=" Enter your Password" required/>
 
-                        <div><a className="link link-hover">Forgot password?</a></div>
+                      
                         <button type="submit" className="btn btn-neutral mt-4">Register</button>
                         <p className='font-semibold text-center pt-5'> Have An Account ? <Link to="/auth/login" className="text-secondary"> Login</Link></p>
                     </fieldset>
