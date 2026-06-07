@@ -1,5 +1,5 @@
 import React from 'react';
-import { Outlet, useNavigation } from 'react-router';
+import { Outlet, useLoaderData, useNavigation } from 'react-router';
 import Header from '../Components/Header/Header';
 import LatestNews from '../Components/LatestNews/LatestNews';
 import NavBar from '../Components/NavBar/NavBar';
@@ -9,13 +9,15 @@ import Loding from '../pages/Loding';
 
 const HomeLayout = () => {
     const {state}=useNavigation();
+    const data =useLoaderData()
+
     return (
         <div>
             <header>
                 <Header></Header>
                 {import.meta.env.VITE_name}
                 <section className='w-11/12 mx-auto my-3'>
-                    <LatestNews></LatestNews>
+                    <LatestNews data={data}></LatestNews>
                 </section>
                 <nav className='w-11/12 mx-auto my-3'>
                     <NavBar></NavBar>
@@ -28,7 +30,7 @@ const HomeLayout = () => {
                     <LeftAsid></LeftAsid>
                     </aside>
                 <section className='col-span-6'>
-                   {state =="loading" ? <Loding></Loding> : <Outlet></Outlet> } 
+                   {state =="loading" ? <Loding></Loding> : <Outlet context={{data}}></Outlet> } 
                 </section>
                 <aside className='col-span-3 sticky top-0 h-fit'> 
                     <RightAside></RightAside>

@@ -18,6 +18,7 @@ const router = createBrowserRouter(
         {
             path: "/",
             Component: HomeLayout,
+            loader: () => fetch("/news.json"),
             children: [
                 {
                     index: true,
@@ -26,7 +27,6 @@ const router = createBrowserRouter(
                 {
                     path: "/category/:id",
                     element: <CategoryNews></CategoryNews>,
-                    loader: () => fetch("/news.json"),
                     hydrateFallbackElement: <Loding></Loding>
                 }
             ]

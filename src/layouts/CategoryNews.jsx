@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useLoaderData, useParams } from 'react-router';
+import { useLoaderData, useOutletContext, useParams } from 'react-router';
 import NewsCard from '../Components/Homelayout/NewsCard';
 
 const CategoryNews = () => {
     const { id } = useParams()
-    const data = useLoaderData()
+const {data} = useOutletContext()
     const [categoryNews, setCategorynews] = useState([])
 
 
